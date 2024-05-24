@@ -1,7 +1,7 @@
+using {uuid} from '@sap/cds/common;
 namespace my.company;
 
-entity DeptViews {
-    key ID              : UUID;
+entity DeptViews: cuid {
     postalcode          : String;
     createdDateTime     : DateTime;
     isDeleted           : Boolean;
@@ -10,8 +10,7 @@ entity DeptViews {
     name                : String;
 }
 
-entity Users {
-    key ID                           : UUID;
+entity Users: cuid {
     name                             : String;
     email                            : String;
     phone                            : String;
@@ -44,7 +43,7 @@ entity Users {
     isAccountLocked                  : Boolean;
 }
 
-entity UserViews {
+entity UserViews: cuid {
     key ID              : UUID;
     name               : String;
     email              : String;
@@ -56,7 +55,7 @@ entity UserViews {
     type               : Integer;
     createdDateTime    : DateTime;
 }
-entity Departments {
+entity Departments : cuid {
     key ID             : UUID;
     // settings           : Settings;
     departmentAdmins   : Association to many Users;
