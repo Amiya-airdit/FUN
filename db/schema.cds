@@ -71,3 +71,43 @@ entity Departments : cuid {
     isDeleted          : Boolean;
 }
 
+entity Assets {
+    UniqueId                : String(36);
+    key name                    : String;
+    type                    : String;
+    applicationType         : String;
+    objectType              : String;
+    isMediaAvailable        : Boolean;
+    references              : String;
+    workInstruction         : String;
+    lastModifiedDate        : Timestamp;
+    lastModifiedBy          : String;
+    description             : String;
+    geoFields               : String;   
+    isAllowMap              : Boolean;
+    mandatoryFields         : String;   
+    dependentFields         : String;   
+    allocatedcategories     : String;   
+    allocatedDepartments    : String;   
+    displayField            : String;
+    templateoriginalName    : String;
+    locationField           : String;   
+    shareGroup              : String;   
+    generatedIdForFileAttachment : String; 
+    formzCategory           : String;  
+    allocatedUsers          : String;   
+    alternativeMailid       : String;
+    category                : String;
+    isVisible               : Boolean;
+    createdBy               : String;
+    createdTime             : Timestamp;
+    formType                : String;
+    version                 : Integer;
+    isRuleDefined           : Boolean;
+    maxZoomLevel            : Integer;
+    minZoomLevel            : Integer;
+}
+
+
+
+
