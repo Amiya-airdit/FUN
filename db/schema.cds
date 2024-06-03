@@ -123,5 +123,17 @@ entity formviews {
     type                    : String;
 }
 
+entity vendors {  
+key _id               : String;
+departmentId          : String;
+   departmentName        : String;
+   createdByEmailID      : String;
+   isDeleted             : Boolean; 
+  img                   : String; 
+  type                  : String; 
+  name                  : String;  
+ shortname             : String;  
+ __v                   : Integer; }
+
 
 
