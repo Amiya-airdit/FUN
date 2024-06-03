@@ -10,6 +10,23 @@ entity DeptViews: cuid {
     name                : String;
 }
 
+
+entity Departments{
+key name : String;
+// groupadminList : array of String;
+// isMdpeQU : Boolean;
+// isSteelQU : Boolean;
+// isQUAssigned : Boolean;
+postalcode : String;
+applicationType : String;
+// mapType : String;
+createdDateTime : String;
+isDeleted : Boolean default false;
+description : String;
+isActive : Boolean default true;
+createdBy : String; //This field we added extra to match like MockUp.
+}
+
 entity Users: cuid {
     name                             : String;
     email                            : String;
@@ -54,21 +71,6 @@ entity UserViews: cuid {
     username           : String;
     type               : Integer;
     createdDateTime    : DateTime;
-}
-entity Departments : cuid {
-    key ID             : UUID;
-    // settings           : Settings;
-    departmentAdmins   : Association to many Users;
-    departmentUsers    : Association to many Users;
-    groupadminList     : array of String;
-    isMdpeQU           : Boolean;
-    isSteelQU          : Boolean;
-    isQUAssigned       : Boolean;
-    postalcode         : String;
-    applicationType    : String;
-    mapType            : String;
-    createdDateTime    : DateTime;
-    isDeleted          : Boolean;
 }
 
 entity Assets {
@@ -123,7 +125,38 @@ entity formviews {
     type                    : String;
 }
 
-entity vendors {  
+entity Users {
+  key username                  : String;
+  vendor                       : Association to Vendors;
+  type                         : Integer;
+  privilege                    : Privilege;
+  numberOfAttemptsWithWrongPassword : Integer;
+  isAccountLocked              : Boolean;
+  adminRole                    : String;
+  userType                     : String;
+  lastLoggedInTime             : Timestamp;
+  deviceDetails                : String;
+  isFirstLogin                 : Boolean;
+  createdByMailID              : String;
+  createdBy                    : String;
+  adminlist                    : String;
+  createdDateTime              : Timestamp;
+  selectedGroupList            : String;
+  isUserLocatorActive          : Boolean;
+  signurl                      : String;
+  imageurl                     : String;
+  adminType                    : String;
+  isDeleted                    : Boolean;
+  departments                  : Association to many Departments;
+  phone                        : String;
+  email                        : String;
+  name                         : String;
+  password                     : String;
+  accountLockedOn              : Timestamp;
+  __v                          : Integer;
+}
+
+entity Vendors {
 key _id               : String;
 departmentId          : String;
    departmentName        : String;
@@ -133,7 +166,15 @@ departmentId          : String;
   type                  : String; 
   name                  : String;  
  shortname             : String;  
- __v                   : Integer; }
+ __v                   : Integer;
+}
+
+entity Privilege {
+  downloads                    : Boolean;
+  catalog                      : Boolean;
+  privilegeList                : String;
+}
+
 
 
 
